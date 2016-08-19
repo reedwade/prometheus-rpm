@@ -14,4 +14,5 @@
 #  -collector.ipvs.procfs="": procfs mountpoint.
 #  -collector.diskstats.ignored-devices="^(ram|loop|fd|(h|s|v|xv)d[a-z])\\d+$": Regexp of devices to ignore for diskstats.
 
-ARGS="-collectors.enabled=diskstats,filesystem,loadavg,meminfo,stat,textfile,time,netdev,netstat,lastlogin"
+ARGS="-collectors.enabled=diskstats,filesystem,loadavg,meminfo,stat,textfile,time,netdev,netstat,uname,vmstat"
+

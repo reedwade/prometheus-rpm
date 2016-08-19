@@ -6,7 +6,7 @@ all: rpm clean
 rpm:
 	mkdir -p "$(PWD)/rpmbuild"
 	mkdir -p "$(PWD)/rpmbuild/SOURCES/"
-	cd "$(PWD)/rpmbuild/SOURCES" && wget https://github.com/prometheus/node_exporter/releases/download/$(VERSION)/node_exporter-$(VERSION).linux-amd64.tar.gz
+	cd "$(PWD)/rpmbuild/SOURCES" && wget https://github.com/prometheus/node_exporter/releases/download/$(VERSION)/node_exporter-$(VERSION).linux-amd64.tar.gz -O node_exporter-$(VERSION).linux-amd64.tar.gz
 	cd "$(PWD)/rpmbuild/SOURCES" && mkdir "node_exporter-$(VERSION).linux-amd64" && tar xzvf *tar.gz -C "node_exporter-$(VERSION).linux-amd64"
 	cp -Rv contrib "$(PWD)/rpmbuild/SOURCES/node_exporter-$(VERSION).linux-amd64"
 	cd "$(PWD)/rpmbuild/SOURCES" && tar cvfz node_exporter-$(VERSION).linux-amd64.tar.gz node_exporter-$(VERSION).linux-amd64
@@ -17,3 +17,6 @@ deploy:
 clean:
 	rm -rf "$(PWD)/rpmbuild/SOURCES/prometheus-node-exporter-$(VERSION)"
 	rm -rf "$(PWD)/rpmbuild/SOURCES/prometheus-node-exporter-$(VERSION).linux-amd64.tar.gz"
+
+clean-all:
+	rm -rf "$(PWD)/rpmbuild"
