@@ -1,0 +1,12 @@
+# not installed by default as logrotate is used to manage all log files.
+/var/log/prometheus/rabbitmq_exporter.log
+{
+  sharedscripts
+  missingok
+  notifempty
+  rotate 30
+  compress
+  postrotate
+        [ ! -f /var/run/prometheus/rabbitmq_exporter.pid ] || /etc/init.d/rabbitmq_exporter restart
+  endscript
+}
